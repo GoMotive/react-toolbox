@@ -6,6 +6,11 @@ import Clock from './Clock.js';
 
 const factory = (Dialog) => {
   class TimePickerDialog extends Component {
+
+    constructor (props, context) {
+      super(props, context);
+      this.setClockRefs = this.setClockRefs.bind(this);
+   }
     static propTypes = {
       active: PropTypes.bool,
       cancelLabel: PropTypes.string,
@@ -80,6 +85,10 @@ const factory = (Dialog) => {
       this.setState({display: event.target.id});
     };
 
+    setClockRefs = (ref)=>{
+       this.clockNode = ref;
+    }
+
     actions = [
       { label: this.props.cancelLabel, className: this.props.theme.button, onClick: this.props.onDismiss },
       { label: this.props.okLabel, className: this.props.theme.button, name: this.props.name, onClick: this.handleSelect }
@@ -129,7 +138,7 @@ const factory = (Dialog) => {
             {this.renderAMPMLabels()}
           </header>
           <Clock
-            ref={(node) => { this.clockNode = node; }}
+            ref={this.setClockRefs}
             display={this.state.display}
             format={this.props.format}
             onChange={this.handleClockChange}
