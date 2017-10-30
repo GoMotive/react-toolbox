@@ -37,11 +37,11 @@ class Hours extends Component {
   };
 
   handleMouseDown = (event) => {
-    this.refs.hand.mouseStart(event);
+    this.handNode.mouseStart(event);
   };
 
   handleTouchStart = (event) => {
-    this.refs.hand.touchStart(event);
+    this.handNode.touchStart(event);
   };
 
   valueFromDegrees (degrees) {
@@ -85,7 +85,7 @@ class Hours extends Component {
             theme={this.props.theme}
           />
           {this.renderInnerFace(radius - spacing * innerSpacing)}
-          <Hand ref='hand'
+          <Hand ref={(node) => { this.handNode = node; }}
             angle={selected * step}
             length={(this.state.inner ? radius - spacing * innerSpacing : radius) - spacing}
             onMove={this.handleHandMove}

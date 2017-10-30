@@ -29,11 +29,11 @@ class Minutes extends Component {
   };
 
   handleMouseDown = (event) => {
-    this.refs.hand.mouseStart(event);
+    this.handNode.mouseStart(event);
   };
 
   handleTouchStart = (event) => {
-    this.refs.hand.touchStart(event);
+    this.handNode.touchStart(event);
   };
 
   render () {
@@ -49,7 +49,7 @@ class Minutes extends Component {
           theme={this.props.theme}
           twoDigits
         />
-        <Hand ref='hand'
+        <Hand ref={(node) => { this.handNode = node; }}
           className={minutes.indexOf(this.props.selected) === -1 ? this.props.theme.small : ''}
           angle={this.props.selected * step}
           length={this.props.radius - this.props.spacing}

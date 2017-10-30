@@ -57,7 +57,7 @@ class Clock extends Component {
   };
 
   handleCalculateShape = () => {
-    const { top, left, width } = this.refs.placeholder.getBoundingClientRect();
+    const { top, left, width } = this.placeholderNode.getBoundingClientRect();
     this.setState({
       center: { x: left + width / 2 - window.pageXOffset, y: top + width / 2 - window.pageXOffset },
       radius: width / 2
@@ -110,7 +110,7 @@ class Clock extends Component {
     const animation = this.props.display === 'hours' ? ZoomOut : ZoomIn;
     return (
       <div data-react-toolbox='clock' className={theme.clock}>
-        <div ref='placeholder' className={theme.placeholder} style={{height: this.state.radius * 2}}>
+        <div ref={(node) => { this.placeholderNode = node; }} className={theme.placeholder} style={{height: this.state.radius * 2}}>
           <CssTransitionGroup transitionName={animation} transitionEnterTimeout={500} transitionLeaveTimeout={500}>
             <div key={this.props.display} className={theme.clockWrapper} style={{height: this.state.radius * 2}}>
               {this.props.display === 'hours' ? this.renderHours() : null}
