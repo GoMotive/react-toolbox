@@ -65,6 +65,10 @@ const factory = (Dialog) => {
       }
     }
 
+    setClockRefs = (ref) => {
+      this.clockNode = ref;
+   }
+
     handleClockChange = (value) => {
       this.setState({displayTime: value});
     };
@@ -84,10 +88,6 @@ const factory = (Dialog) => {
     switchDisplay = (event) => {
       this.setState({display: event.target.id});
     };
-
-    setClockRefs (ref){
-       this.clockNode = ref;
-    }
 
     actions = [
       { label: this.props.cancelLabel, className: this.props.theme.button, onClick: this.props.onDismiss },
@@ -138,7 +138,7 @@ const factory = (Dialog) => {
             {this.renderAMPMLabels()}
           </header>
           <Clock
-            ref={this.setClockRefs}
+            ref={(node) => { this.setClockRefs(node); }}
             display={this.state.display}
             format={this.props.format}
             onChange={this.handleClockChange}
