@@ -85,7 +85,7 @@ const factory = (Dialog) => {
       this.setState({display: event.target.id});
     };
 
-    setClockRefs = (ref)=>{
+    setClockRefs (ref){
        this.clockNode = ref;
     }
 
