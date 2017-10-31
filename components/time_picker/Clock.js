@@ -41,6 +41,13 @@ class Clock extends Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    console.log('Clock componentWillReceiveProps');
+    setTimeout(() => {
+      this.handleCalculateShape();
+    });
+  }
+  componentDidUpdate (prevProps) {
+    console.log('Clock componentDidUpdate');
     setTimeout(() => {
       this.handleCalculateShape();
     });
