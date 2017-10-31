@@ -40,6 +40,12 @@ class Clock extends Component {
     });
   }
 
+  componentWillReceiveProps (nextProps) {
+    setTimeout(() => {
+      this.handleCalculateShape();
+    });
+  }
+
   componentWillUnmount () {
     window.removeEventListener('resize', this.handleCalculateShape);
   }
