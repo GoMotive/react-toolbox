@@ -4,8 +4,10 @@ import classnames from 'classnames';
 
 const FontIcon = ({gomotive, children, className, value, ...other}) => {
   let classNames = classnames({'material-icons': typeof value === 'string' || typeof children === 'string'}, className);
+  let val = value;
   if (gomotive){
-    classNames = classnames({'gomotive-icons': typeof value === 'string' || typeof children === 'string'}, className);
+    classNames = classnames({'gomotive-icons': typeof value === 'string' || typeof children === 'string'}, className, value);
+    val = '';
   }
   return (
       <span
@@ -13,7 +15,7 @@ const FontIcon = ({gomotive, children, className, value, ...other}) => {
         className={classNames}
         {...other}
       >
-        {value}
+        {val}
         {children}
       </span>
   );

@@ -16,12 +16,12 @@ const factory = (Avatar, ListItemContent, ListItemActions) => {
     }, props.className);
 
     const leftActions = [
-      props.leftIcon && <FontIcon value={props.leftIcon} key='leftIcon'/>,
+      props.leftIcon && <FontIcon gomotive={props.gomotive} value={props.leftIcon} key='leftIcon'/>,
       props.avatar && <Avatar image={props.avatar} key='avatar'/>,
       ...props.leftActions
     ];
     const rightActions = [
-      props.rightIcon && <FontIcon value={props.rightIcon} key='rightIcon'/>,
+      props.rightIcon && <FontIcon gomotive={props.gomotive} value={props.rightIcon} key='rightIcon'/>,
       ...props.rightActions
     ];
     const content = props.itemContent || <ListItemContent theme={props.theme} caption={props.caption} legend={props.legend} />;
@@ -45,6 +45,7 @@ const factory = (Avatar, ListItemContent, ListItemActions) => {
     children: PropTypes.any,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    gomotive: PropTypes.bool,
     itemContent: PropTypes.element,
     leftActions: PropTypes.array,
     leftIcon: PropTypes.oneOfType([
@@ -68,6 +69,7 @@ const factory = (Avatar, ListItemContent, ListItemActions) => {
 
   ListItemLayout.defaultProps = {
     disabled: false,
+    gomotive: false,
     selectable: false
   };
 

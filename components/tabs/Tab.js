@@ -11,6 +11,7 @@ class Tab extends Component {
     activeClassName: PropTypes.string,
     className: PropTypes.string,
     disabled: PropTypes.bool,
+    gomotive: PropTypes.bool,
     hidden: PropTypes.bool,
     icon: PropTypes.node,
     label: PropTypes.node,
@@ -30,6 +31,7 @@ class Tab extends Component {
     active: false,
     className: '',
     disabled: false,
+    gomotive: false,
     hidden: false
   };
 
@@ -47,6 +49,7 @@ class Tab extends Component {
 
   render () {
     const {
+      gomotive,
       onActive, // eslint-disable-line
       active, activeClassName, className, disabled, hidden, label, icon, theme, ...other
     } = this.props;
@@ -61,7 +64,7 @@ class Tab extends Component {
 
     return (
       <label {...other} data-react-toolbox='tab' className={_className} onClick={this.handleClick}>
-        {icon && <FontIcon className={theme.icon} value={icon}/>}
+        {icon && <FontIcon gomotive={gomotive} className={theme.icon} value={icon}/>}
         {label}
       </label>
     );
