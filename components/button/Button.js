@@ -15,6 +15,7 @@ const factory = (ripple, FontIcon) => {
       disabled: PropTypes.bool,
       flat: PropTypes.bool,
       floating: PropTypes.bool,
+      gomotive: PropTypes.bool,
       href: PropTypes.string,
       icon: PropTypes.oneOfType([
         PropTypes.string,
@@ -54,6 +55,7 @@ const factory = (ripple, FontIcon) => {
       neutral: true,
       primary: false,
       raised: false,
+      gomotive: false,
       type: 'button'
     };
 
@@ -68,7 +70,7 @@ const factory = (ripple, FontIcon) => {
     };
 
     render () {
-      const { accent, children, className, flat, floating, href, icon,
+      const {gomotive, accent, children, className, flat, floating, href, icon,
         inverse, label, mini, neutral, primary, theme, type, raised, ...others} = this.props;
       const element = href ? 'a' : 'button';
       const level = primary ? 'primary' : accent ? 'accent' : 'neutral';
@@ -89,6 +91,7 @@ const factory = (ripple, FontIcon) => {
         onMouseUp: this.handleMouseUp,
         onMouseLeave: this.handleMouseLeave,
         type: !href ? type : null,
+        gomotive: gomotive ? true : false,
         'data-react-toolbox': 'button'
       };
 
