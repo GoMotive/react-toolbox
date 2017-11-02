@@ -96,7 +96,7 @@ const factory = (ripple, FontIcon) => {
       };
 
       return React.createElement(element, props,
-        icon ? <FontIcon className={theme.icon} value={icon}/> : null,
+        icon ? <FontIcon gomotive={gomotive} className={theme.icon} value={icon}/> : null,
         label,
         children
       );

@@ -71,7 +71,7 @@ const factory = (ripple, FontIcon) => {
       };
 
       return React.createElement(element, props,
-        icon ? typeof icon === 'string' ? <FontIcon className={theme.icon} value={icon} /> : icon : null,
+        icon ? typeof icon === 'string' ? <FontIcon gomotive={gomotive} className={theme.icon} value={icon} /> : icon : null,
         children
       );
     }
